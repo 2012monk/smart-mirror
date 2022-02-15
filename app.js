@@ -74,7 +74,7 @@ function getToken(code) {
 }
 
 function writeFile() {
-    fs.readFile("../config.js", (err, data) => {
+    fs.readFile("./config.js", (err, data) => {
         if (err) return console.error(err);
         const file = data.toString();
         const r1 = /(oauth2ClientSecret:\s)(.*),/
