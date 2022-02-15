@@ -173,7 +173,17 @@ node -v && npm -v
 ### Magic Mirror 설치
 
 ```sh
-git clone https://github.com/MichMich/MagicMirror && npm install --prefix ~/MagicMirror && cp ~/smart-mirror/config.js ~/MagicMirror/config/config.js
+cd ~ && git clone https://github.com/MichMich/MagicMirror
+```
+
+```sh
+npm install --prefix ~/MagicMirror
+```
+
+설정파일 붙여넣기
+
+```sh
+cp ~/smart-mirror/config.js ~/MagicMirror/config/config.js
 ```
 
 실행
@@ -232,7 +242,11 @@ npm 6.14.15
 원어에 가까운 발음일수록 인식이 잘 됩니다.
 
 ```sh
-cd ~/MagicMirror/modules && git clone https://github.com/bugsounet/MMM-Detector.git && cd MMM-Detector && npm install
+cd ~/MagicMirror/modules && git clone https://github.com/bugsounet/MMM-Detector.git
+```
+
+```sh
+npm install --prefix ~/MagicMirror/modules/MMM-Detector
 ```
 
 ### MMM-GoogleAssistant 모듈 설치
@@ -240,10 +254,14 @@ cd ~/MagicMirror/modules && git clone https://github.com/bugsounet/MMM-Detector.
 Module 설치
 
 ```sh
-cd ~/MagicMirror/modules && git clone https://github.com/bugsounet/MMM-GoogleAssistant.git && cd MMM-GoogleAssistant && npm install
+cd ~/MagicMirror/modules && git clone https://github.com/bugsounet/MMM-GoogleAssistant.git 
 ```
 
-- 의존성 패키지 모두 설치
+```sh
+npm install --prefix ~/MagicMirror/modules/MMM-GoogleAssistant
+```
+
+- 아래와 같은 문가가 나올경우 y 입력 의존성 패키지 설치
 
 ![](images/ga/google-assistant24.png)
 
@@ -342,7 +360,7 @@ Google Assistant Setup
 mv 파일경로 ~/MagicMirror/modules/MMM-GoogleAssistant/credentials.json
 ```
 
-원격 컴퓨터에 client secret 을 다운로드 받았을때 옮기기
+라즈베리 파이가 아닌 원격 컴퓨터에 client secret 을 다운로드 받았을때 옮기기
 
 윈도우 cmd, 맥 terminal 에서 진행
 
@@ -381,7 +399,10 @@ __브라우저가 열리지 않는다면 링크를 복사해서 직접 접속한
 [github](https://github.com/jclarke0000/MMM-OpenWeatherForecast)
 
 ```sh
-cd ~/MagicMirror/modules && git clone https://github.com/jclarke0000/MMM-OpenWeatherForecast.git && npm install --prefix ~/MagicMirror/modules/MMM-OpenWeatherForecast
+cd ~/MagicMirror/modules && git clone https://github.com/jclarke0000/MMM-OpenWeatherForecast.git
+
+```sh
+npm install --prefix ~/MagicMirror/modules/MMM-OpenWeatherForecast
 ```
 
 api key 발급 및 설정 하기
@@ -422,7 +443,11 @@ api key 발급 및 설정 하기
 [원본 설치 가이드](https://github.com/thobach/MMM-MicrosoftToDo)
 
 ```sh
-cd ~/MagicMirror/modules && git clone https://github.com/thobach/MMM-MicrosoftToDo.git && npm install request --save && cd MMM-MicrosoftToDo && npm install
+cd ~/MagicMirror/modules && git clone https://github.com/thobach/MMM-MicrosoftToDo.git
+```
+
+```sh
+npm install request --save && npm install --prefix ~/MagicMirror/modules/MMM-MicrosoftToDo
 ```
 
 1. [링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 으로 접속후 로그인 (회원가입 필요) 후 새 프로젝트 생성.
