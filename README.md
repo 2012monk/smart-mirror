@@ -3,6 +3,10 @@
 raspberry pi 를 이용한 스마트 미러 프로젝트 가이드 입니다.
 
 라즈베리 파이에서 직접 작업하는 전제로 작성되었습니다.
+
+목차
+
+
 ## raspberry pi 설정
 
 ### os image 굽기
@@ -409,17 +413,43 @@ api key 발급 및 설정 하기
 cd ~/MagicMirror/modules && git clone https://github.com/thobach/MMM-MicrosoftToDo.git && npm install request --save && cd MMM-MicrosoftToDo && npm install
 ```
 
-1. [링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 으로 접속후 로그인 (회원가입 필요)
+1. [링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 으로 접속후 로그인 (회원가입 필요) 후 새 프로젝트 생성.
 
-- 토큰 발급
+![](images/todo/todo1.png)
 
-명령어 입력
+2. 프로젝트 이름 입력
+   
+   지원되는 계정 유형 선택 (모든 조직 디렉터리의 계정)
+
+   리디렉션 uri 웹 선택 후 주소에 http://localhost:8080/tokens 입력
+
+![](images/todo/todo3.png)
+
+![](images/todo/todo2.png)
+3. 클라이언트 비밀 발급 
+
+![](images/todo/todo4.png)
+
+![](images/todo/todo5.png)
+
+4. 클라이언트(애플리케이션) 아이디와 클라이언트 비밀 을 복사해둔다
+
+클라이언트 아이디
+
+![](images/todo/todo3.png)
+
+클라이언트 비밀
+
+![](images/todo/todo6.png)
+
+5. 서버 실행 명령어 입력
 
 ```sh
 cd ~/smart-mirror && node app.js
 ```
 
-[링크](http://localhost:8080) 으로 접속
+6. [링크](http://localhost:8080) 으로 접속
 
-client id 와 client secret 입력 후 submit 클릭
+    위에서 복사해둔 client id 와 client secret 입력 후 submit 클릭
 
+![](images/todo/todo7.png)

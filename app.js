@@ -74,7 +74,7 @@ function getToken(code) {
 }
 
 function writeFile() {
-    fs.readFile("./config.js", (err, data) => {
+    fs.readFile("~/MagicMirror/config/config.js", (err, data) => {
         if (err) return console.error(err);
         const file = data.toString();
         const r1 = /(oauth2ClientSecret:\s)(.*),/
@@ -85,7 +85,7 @@ function writeFile() {
         let changed = file.replace(r1, `$1\'${userData.client_secret}\',`)
         .replace(r3, `$1\'${userData.client_id}\',`)
         .replace(r2, rf);
-        fs.writeFileSync("./tmp.js", changed);
+        fs.writeFileSync("~/MagicMirror/config/config.js", changed);
         process.exit(0);
     });
 }
