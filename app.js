@@ -4,7 +4,7 @@ const url = require('url');
 const qs = require('querystring');
 const fs = require('fs');
 const indexHtml = fs.readFileSync('./index.html', 'utf-8');
-const currentConfigFilePath = "~/MagicMirror/config/config.js";
+const currentConfigFilePath = "/home/pi/MagicMirror/config/config.js";
 const defaultConfigFilePath = "./config.js";
 const userData = {
     'client_id': null,

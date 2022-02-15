@@ -198,16 +198,6 @@ cd ~/MagicMirror && npm run start
 컨트롤 + q
 ```
 
-## 시작시 자동실행
-
-```sh
-cd ~ && echo "cd ./MagicMirror && npm start" > mm.sh && sudo npm install -g pm2 && pm2 startup
-```
-
-```sh
-sudo env PATH=$PATH:/usr/local/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi && pm2 start mm.sh && pm2 save
-```
-
 ## Magic Mirror Module 설치
 
 구글 어시스턴트 모듈
@@ -446,6 +436,7 @@ api key 발급 및 설정 하기
 cd ~/MagicMirror/modules && git clone https://github.com/thobach/MMM-MicrosoftToDo.git
 ```
 
+
 ```sh
 npm install request --save && npm install --prefix ~/MagicMirror/modules/MMM-MicrosoftToDo
 ```
@@ -490,3 +481,14 @@ cd ~/smart-mirror && node app.js
     위에서 복사해둔 client id 와 client secret 입력 후 submit 클릭
 
 ![](images/todo/todo7.png)
+
+
+## 시작시 자동실행
+
+```sh
+cd ~ && echo "cd ./MagicMirror && npm start" > mm.sh && sudo npm install -g pm2 && pm2 startup
+```
+
+```sh
+sudo env PATH=$PATH:/usr/local/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi && pm2 start mm.sh && pm2 save
+```
