@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TODO 모듈 등록</title>
 </head>
 <body>
     <form id="form">
@@ -16,19 +16,14 @@
 <script>
     document.getElementById("form").addEventListener('submit', e => {
         e.preventDefault();
-        const data = new FormData(e.target);
-        const val = new URLSearchParams(Object.fromEntries(data.entries()));
+        const val = new URLSearchParams(Object.fromEntries(new FormData(e.target).entries()));
         const client_id = document.getElementById("client-id").value;
-        let _url = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code&client_id=${client_id}&scope=offline_access%20user.read%20tasks.readwrite%20tasks.read&redirect_uri=http://localhost:8080/tokens&response_mode=query&state=12345`
-        console.log({ val });
         fetch('http://localhost:8080/data', {
             method: "post",
             body: val,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
-        location.href = _url;
+        location.href = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code&client_id=${client_id}&scope=offline_access%20user.read%20tasks.readwrite%20tasks.read&redirect_uri=http://localhost:8080/tokens&response_mode=query&state=12345`
     })
 </script>
 </html>
