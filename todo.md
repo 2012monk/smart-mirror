@@ -1,2 +1,0 @@
-# MicroSoftToDo 설치
-

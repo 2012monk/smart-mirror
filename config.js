@@ -37,6 +37,7 @@ let config = {
 		},
 		{
 			module: "updatenotification",
+			disabled: true,
 			position: "top_bar"
 		},
 		{
@@ -60,6 +61,10 @@ let config = {
 				assistantConfig: {
                     lang: "ko-KR"
 				},
+				NPMCheck: {
+					useChecker: false,
+					useAlert: false
+				  },
             }
 		},
 		{
@@ -108,8 +113,8 @@ let config = {
 		header: "Forecast",
 		config: {
 		  apikey: "", // 발급받은 api key 입력
-            latitude: "위도 입력",
-            longitude: "경도 입력",
+            latitude:37.588262229584345, // 원하는 위치의 위도 경도로 교체
+            longitude: 126.97957220777492,
             language: "kr",
             forecastLayout: "table",
 		}

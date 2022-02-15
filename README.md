@@ -6,19 +6,17 @@ raspberry pi 를 이용한 스마트 미러 프로젝트 가이드 입니다.
 
 목차
 
-
 ## raspberry pi 설정
 
 ### os image 굽기
 
 미리 다운로드 하지 않고 진행하면 시간이 너무 오래 소요되어 img 파일을 미리 다운로드 받아서 진행 하겠습니다.
 
-1. os image 다운로드 후 압축 해제 [링크](https://www.raspberrypi.com/software/operating-systems/) 
+1. os image 다운로드 후 압축 해제 [링크](https://www.raspberrypi.com/software/operating-systems/)
 
 ![](images/rpi/rpi4.png)
 
-2. 접속 운영 체제에 맞는 Imager 설치 후 실행 [링크](https://www.raspberrypi.com/software/) 
-
+2. 접속 운영 체제에 맞는 Imager 설치 후 실행 [링크](https://www.raspberrypi.com/software/)
 
 ![](images/rpi/rpi1.png)
 
@@ -47,6 +45,20 @@ raspberry pi 를 이용한 스마트 미러 프로젝트 가이드 입니다.
 ![](images/rpi/rpi7.png)
 
 ![](images/rpi/rpi8.png)
+
+### 비밀번호 변경방법
+
+사용자 암호 변경
+
+```sh
+sudo passwd pi
+```
+
+루트 사용자 암호 변경
+
+```sh
+sudo passwd root
+```
 
 ### ssh 접속 방법
 
@@ -179,13 +191,13 @@ cd ~/MagicMirror && npm run start
 ## 시작시 자동실행
 
 ```sh
-cd ~ && echo "cd ./MagicMirror && npm start" > mm.sh && sudo npm install -g pm2
+cd ~ && echo "cd ./MagicMirror && npm start" > mm.sh && sudo npm install -g pm2 && pm2 startup
 ```
-
 
 ```sh
-pm2 startup && sudo env PATH=$PATH:/usr/local/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi && pm2 start mm.sh && pm2 save
+sudo env PATH=$PATH:/usr/local/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi && pm2 start mm.sh && pm2 save
 ```
+
 ## Magic Mirror Module 설치
 
 구글 어시스턴트 모듈
@@ -210,7 +222,6 @@ node  14.18.2
 npm 6.14.15
 
 위 버전보다 최신 버전에서는 호환성 이슈가 있습니다.
-
 
 ### MMM-Detector
 
@@ -239,6 +250,7 @@ cd ~/MagicMirror/modules && git clone https://github.com/bugsounet/MMM-GoogleAss
 - 아래와 같은 __오류__ 발생시 light 버전으로 설치해야 하기 때문에 `npm install` 한번 더 입력
 
 ![](images/ga/google-assistant31.png)
+
 ```sh
 npm install
 ```
@@ -246,7 +258,6 @@ npm install
 Google Assistant Setup
 
 [module guide](https://wiki.bugsounet.fr/en/MMM-GoogleAssistant/GoogleAssistantSetup)
-
 
 1. [액션 콘솔](https://console.actions.google.com/u/0/) 에서 새로운 프로젝트 생성
 
@@ -278,7 +289,7 @@ Google Assistant Setup
 
 ![](images/ga/google-assistant7.png)
 
-2.[google cloud platform](https://console.cloud.google.com/) 접속 
+2.[google cloud platform](https://console.cloud.google.com/) 접속
 
 - 동의
 
@@ -304,7 +315,6 @@ Google Assistant Setup
 
 ![](images/ga/google-assistant13.png)
 
-
 ![](images/ga/google-assistant14.png)
 
 ![](images/ga/google-assistant15.png)
@@ -318,7 +328,6 @@ Google Assistant Setup
 - 앱 게시
 
 ![](images/ga/google-assistant19.png)
-
 
 - 프로젝트 생성시 client secret 을 다운받지 않았다면 사용자 인증 정보에서 찾을수 있다
 
@@ -366,10 +375,10 @@ __브라우저가 열리지 않는다면 링크를 복사해서 직접 접속한
 - 콘솔에 붙여넣기
 
 ![](images/ga/google-assistant30.png)
+
 ### MMM-OpenWeatherForecast
 
 [github](https://github.com/jclarke0000/MMM-OpenWeatherForecast)
-
 
 ```sh
 cd ~/MagicMirror/modules && git clone https://github.com/jclarke0000/MMM-OpenWeatherForecast.git && npm install --prefix ~/MagicMirror/modules/MMM-OpenWeatherForecast
@@ -395,17 +404,20 @@ api key 발급 및 설정 하기
 
 - config.js 수정
 
-![](images/weather/weather7.png)
+![](images/weather/weather12.png)
+![](images/weather/weather10.png)
 
 발급 받은 api key 입력
 
 현재 위치의 위도, 경도 입력
 
+![](images/weather/weather11.png)
+
 [현재위치 위도 경도 찾기](https://support.google.com/maps/answer/18539?hl=ko&co=GENIE.Platform%3DDesktop)
 
 ![](images/weather/weather8.png)
 
-## 마이크로 소프트 todo 앱과 연동 MMM-MicrosoftTodo 
+## 마이크로 소프트 todo 앱과 연동 MMM-MicrosoftTodo
 
 [원본 설치 가이드](https://github.com/thobach/MMM-MicrosoftToDo)
 
@@ -418,15 +430,15 @@ cd ~/MagicMirror/modules && git clone https://github.com/thobach/MMM-MicrosoftTo
 ![](images/todo/todo1.png)
 
 2. 프로젝트 이름 입력
-   
+
    지원되는 계정 유형 선택 (모든 조직 디렉터리의 계정)
 
-   리디렉션 uri 웹 선택 후 주소에 http://localhost:8080/tokens 입력
+   리디렉션 uri 웹 선택 후 주소에 <http://localhost:8080/tokens> 입력
 
 ![](images/todo/todo3.png)
 
 ![](images/todo/todo2.png)
-3. 클라이언트 비밀 발급 
+3. 클라이언트 비밀 발급
 
 ![](images/todo/todo4.png)
 
