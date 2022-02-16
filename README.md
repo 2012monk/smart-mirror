@@ -390,6 +390,7 @@ __브라우저가 열리지 않는다면 링크를 복사해서 직접 접속한
 
 ```sh
 cd ~/MagicMirror/modules && git clone https://github.com/jclarke0000/MMM-OpenWeatherForecast.git
+```
 
 ```sh
 npm install --prefix ~/MagicMirror/modules/MMM-OpenWeatherForecast
