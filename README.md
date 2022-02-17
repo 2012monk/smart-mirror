@@ -483,6 +483,15 @@ cd ~/smart-mirror && node app.js
 
 ![](images/todo/todo7.png)
 
+## Month Calendar 설치
+
+```sh
+cd ~/MagicMirror/modules && git clone https://github.com/PalatinCoder/MMM-MonthCalendar.git
+```
+
+```sh
+npm install --prefix ~/MagicMirror/modules/MMM-MonthCalendar
+```
 
 ## 시작시 자동실행
 
