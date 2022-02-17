@@ -52,6 +52,28 @@ let config = {
             disabled: true,
 			position: "lower_third"
 		},
+		   {
+	module: "calendar",
+	header: "내 일정",
+	position: "top_left",
+	config: {
+	      calendars: [
+		{
+		     symbol: "calendar-check",
+		     url: ""
+		}
+	      ]
+	}
+    },
+		{
+			module: 'MMM-MonthCalendar',
+			position: "top_left",
+			header: "",
+			config: {
+				updateDelay: 60,
+				showAdjacentMonths: true
+			}
+		},	
 		{
 			module: "MMM-GoogleAssistant",
 			position: "fullscreen_above",
